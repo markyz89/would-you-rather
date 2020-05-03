@@ -1,0 +1,6 @@
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+
+export const RECEIVE_USERS = 'RECEIVE_USERS'
+export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
