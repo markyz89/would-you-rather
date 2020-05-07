@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { signIn, signOut } from '../actions'
 
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Login extends Component  {
     constructor(props) {
@@ -42,12 +43,16 @@ class Login extends Component  {
                         {this.renderUsers(users)}
 
                     </select>
-                    <button onClick={() => this.onLogin()}>Log In</button> 
+                    <Link to="/">
+                        <button onClick={() => this.onLogin()}>Log In</button> 
+                    </Link>
                 </div>
                 :
                 <div>
                     <p>Hello {users[userId].name}</p>
+                    <Link to="/">
                     <button onClick={() => this.onLogout()}>Log Out</button>
+                    </Link>
                 </div>
             )
         }

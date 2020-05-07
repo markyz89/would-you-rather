@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import Question from './Question'
+import Login from './Login'
 
 class Home extends Component  {
     constructor(props) {
@@ -53,7 +54,10 @@ class Home extends Component  {
                 </div>
                 
                 :
-                <p>Log in to see the questions</p>
+                <div>
+                    <p>Log in to see the questions</p>
+                    <Login />
+                </div>
                 }
             </div>
         )

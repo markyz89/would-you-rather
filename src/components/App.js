@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import Header from './Header'
 import { handleInitialData } from '../actions/shared'
+import Header from './Header'
+
 import Home from './Home'
 import QuestionView from './QuestionView'
+import NewQuestion from './NewQuestion'
+import Leaderboard from './Leaderboard'
 
 
 class App extends Component  {
@@ -30,16 +33,17 @@ class App extends Component  {
         return (
             <BrowserRouter>
                 <div>
-                {this.props.users ?
+                    {this.props.users ?
+                        <Route path ='/' component={Header}/>
+                    : <p>Loading...</p>
+                    }
                 
-                 <Header />
-                : <p>Loading...</p>
-                }
-            
 
-            <Route path ='/' exact component={Home}/>
-            <Route path='/question/:id' component={QuestionView} />
-            </div>
+                    <Route path ='/' exact component={Home}/>
+                    <Route path='/question/:id' component={QuestionView} />
+                    <Route path='/new' component={NewQuestion} />
+                    <Route path='/leaderboard' component={Leaderboard} />
+                </div>
             </BrowserRouter>
             
         )

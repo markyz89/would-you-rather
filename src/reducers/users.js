@@ -8,8 +8,6 @@ export default function users (state = {}, action) {
                 ...action.users}
             )
             case ANSWER_QUESTION : 
-                console.log(action)
-                console.log(state)
                 let { questionId, questionAnswer } = action.answer
 
                 let newAnsweredQuestion = {[questionId] : questionAnswer}
@@ -17,10 +15,20 @@ export default function users (state = {}, action) {
                 let userAnswers = state[action.answer.authedUser.userId].answers
 
                 let newAnswers = {...userAnswers, ...newAnsweredQuestion}
+
                   
-                return (
-                    {...state, ...newAnswers}
-                )
+                return {
+                    ...state,
+                    [state[action.answer.authedUser.userId].id]: {
+                    ...state[action.answer.authedUser.userId],
+                        answers: {
+                        ...state[action.answer.authedUser.userId].answers,
+                        ...newAnsweredQuestion
+                        }    
+                    }
+                }
+
+
         default :
             return state
     }
