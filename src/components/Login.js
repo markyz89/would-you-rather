@@ -16,7 +16,7 @@ class Login extends Component  {
     renderUsers(users) {
         return Object.values(users).map((user) => {
             return (
-                <option value={user.id}>{user.name}</option>
+                <option value={user.id} key={user.id}>{user.name}</option>
             )
         })
     }
@@ -38,17 +38,17 @@ class Login extends Component  {
             return (
                 !isSignedIn
                 ?
-                <div>
+                <div className="login">
                     <select value={this.state.user} onChange={this.selectUser}>
                         {this.renderUsers(users)}
 
                     </select>
-                    <Link to="/">
+                    {/* <Link to="/"> */}
                         <button onClick={() => this.onLogin()}>Log In</button> 
-                    </Link>
+                    {/* </Link> */}
                 </div>
                 :
-                <div>
+                <div className="logged-in">
                     <p>Hello {users[userId].name}</p>
                     <Link to="/">
                     <button onClick={() => this.onLogout()}>Log Out</button>

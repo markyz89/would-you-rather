@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS } from './types'
+import { RECEIVE_QUESTIONS, ADD_QUESTION } from './types'
 
 export function receiveQuestions (questions) {
     return {
@@ -7,3 +7,9 @@ export function receiveQuestions (questions) {
     }
 }
 
+export function addQuestion (question) {
+    return {
+        type: ADD_QUESTION,
+        question
+    }
+}

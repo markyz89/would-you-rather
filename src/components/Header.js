@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {withRouter} from 'react-router-dom';
 
 import Login from './Login'
 import Nav from './Nav'
@@ -16,7 +15,7 @@ class Header extends Component  {
             show = true
         }
         return (
-            <div>
+            <div className="header">
                 <Nav />
                 {show && (
                     <Login />

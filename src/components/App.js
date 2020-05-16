@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { handleInitialData } from '../actions/shared'
 import Header from './Header'
@@ -9,6 +9,7 @@ import Home from './Home'
 import QuestionView from './QuestionView'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
+import FourOhFour from './FourOhFour'
 
 
 class App extends Component  {
@@ -38,11 +39,17 @@ class App extends Component  {
                     : <p>Loading...</p>
                     }
                 
-
-                    <Route path ='/' exact component={Home}/>
-                    <Route path='/question/:id' component={QuestionView} />
-                    <Route path='/new' component={NewQuestion} />
-                    <Route path='/leaderboard' component={Leaderboard} />
+                        <Switch>
+                            <Route path ='/' exact component={Home}/>
+                            
+                                <Route path='/question/:id' component={QuestionView} />
+                                
+                            
+                            <Route path='/add' component={NewQuestion} />
+                            <Route path='/leaderboard' component={Leaderboard} />
+                            <Route component={FourOhFour}/>
+                        </Switch>
+                    
                 </div>
             </BrowserRouter>
             

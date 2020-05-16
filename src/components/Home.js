@@ -18,17 +18,17 @@ class Home extends Component  {
         const { questions, users } = this.props
         const { questionStatus } = this.state
 
-        let userAnswers = Object.keys(users[userId].answers)
-  
+        let userAnswers = Object.keys(users[userId].answers) 
             return Object.values(questions).filter((question) => {
                 if(questionStatus === 'answered') {
                     return userAnswers.includes(question.id)
                 } else {
                     return !userAnswers.includes(question.id)
                 }
-            }).map((question) => {
+            }).sort((a,b) => b.timestamp - a.timestamp )           
+            .map((question) => {
                 return (
-                    <div>
+                    <div className="home-question-view" key={question.id}>
                         <Question id={question.id} />
                         <Link to={`/question/${question.id}`} id={question.id}>
                             <button>View Poll</button>
@@ -48,13 +48,13 @@ class Home extends Component  {
                 {
                 this.props.signedIn ?
                 <div>
-                    <button onClick={() => this.setState({questionStatus: 'answered'})}>Answered Questions</button>
-                    <button onClick={() => this.setState({questionStatus: 'unanswered'})}>Unanswered Questions</button>
+                    <button onClick={() => this.setState({questionStatus: 'unanswered'})}>Unanswered Questions</button> 
+                    <button onClick={() => this.setState({questionStatus: 'answered'})}>Answered Questions</button>        
                     {this.renderQuestions(userId)}
                 </div>
                 
                 :
-                <div>
+                <div className="home-login">
                     <p>Log in to see the questions</p>
                     <Login />
                 </div>

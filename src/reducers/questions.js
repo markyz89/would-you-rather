@@ -1,5 +1,4 @@
-import { RECEIVE_QUESTIONS, ANSWER_QUESTION } from '../actions/types'
-import users from './users'
+import { RECEIVE_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION } from '../actions/types'
 
 export default function questions (state = {}, action) {
     switch(action.type) {
@@ -9,13 +8,6 @@ export default function questions (state = {}, action) {
                 ...action.questions}
             )
         case ANSWER_QUESTION :
-            console.log('called', action);
-            console.log(action.authedUser)
-
-            let newVotesArray =  [...state[action.answer.questionId][action.answer.questionAnswer].votes, 
-                                 action.answer.authedUser.userId]
-            console.log(newVotesArray)
-            console.log(state[action.answer.questionId][action.answer.questionAnswer].votes)
 
             return {
                 ...state,
@@ -30,7 +22,12 @@ export default function questions (state = {}, action) {
                     }
                 }
             }
-        
+        case ADD_QUESTION :
+            return{
+                ...state,
+                [action.question.id]: action.question
+            }
+            
         default :
             return state
     }

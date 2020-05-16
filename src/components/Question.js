@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { formatQuestion } from '../utils/_DATA.js'
 import { answerQuestion } from '../actions/users'
 import Results from './Results'
+import FourOhFour from './FourOhFour'
 
 class Question extends Component {
 
@@ -28,25 +28,33 @@ class Question extends Component {
     
 
     loggedInRender() {
-        const { authedUser, users, question, id } = this.props
+        const { authedUser, users, question, id, questions } = this.props
+
+        // object.keys to make sure that the url works.
+        if(!Object.keys(questions).includes(id)) {
+            return (
+                <FourOhFour />
+            )
+        }
+
 
         let user = authedUser.userId
 
-        let userAnswerKeys = Object.keys(users[user].answers)
-        console.log(userAnswerKeys)
+        // let userAnswerKeys = Object.keys(users[user].answers)
         if(Object.keys(users[user].answers).includes(id)) {
             return (
                 <Results id={id} />
             )
         }
         
-
-        //     // would prefer for action to take place when submit button pressed
-        // or maybe just have the results view rendered when submit is pressed. Have the state updated when answer is selected
-        //     // have the authedUser in the reducer? Do I need to pass that via the action?
-        // }
         return (
-            <div><h2>Would You Rather...</h2>
+            <div className="questions">
+                <div className="image-content">
+                    <img src={users[question.author].avatarURL} alt="user avatar" className="user-avatar"/>
+                </div>
+                <div className="text-content">
+                <h1>{users[question.author].name} asks:</h1>
+                    <h2>Would You Rather...</h2>
                     <form>
                         <label>
                         <input
@@ -74,14 +82,11 @@ class Question extends Component {
                         </label>
 
                         <button onClick={() => {this.handleChange()}}>
-                         Submit
-                        </button>
-                        
-                        
+                        Submit
+                        </button>    
                     </form>
-
-                
                 </div>
+            </div>
         )
     }
 
@@ -97,9 +102,16 @@ class Question extends Component {
             
         } else {
             return(
-                <div>
-                    <h2>Would you rather...<br/>{question.optionOne.text} or {question.optionTwo.text}?</h2>
+                <div className="questions">
+                    <div className="image-content">
+                        <img src={users[question.author].avatarURL} alt="user avatar" className="user-avatar"/>
+                    </div>
+                    <div className="text-content">
+                        <h1>{users[question.author].name} asks:</h1>
+                        <h2>Would you rather...<br/>{question.optionOne.text} or {question.optionTwo.text}?</h2>
+                    </div>
                 </div>
+                
             )
         }
     }

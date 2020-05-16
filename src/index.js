@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import './index.css'
 import App from './components/App'
 import reducers from './reducers';
-import middleware from './middleware'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 

@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, ANSWER_QUESTION } from '../actions/types'
+import { RECEIVE_USERS, ANSWER_QUESTION, ADD_QUESTION } from '../actions/types'
 
 export default function users (state = {}, action) {
     switch(action.type) {
@@ -12,10 +12,6 @@ export default function users (state = {}, action) {
 
                 let newAnsweredQuestion = {[questionId] : questionAnswer}
 
-                let userAnswers = state[action.answer.authedUser.userId].answers
-
-                let newAnswers = {...userAnswers, ...newAnsweredQuestion}
-
                   
                 return {
                     ...state,
@@ -27,6 +23,17 @@ export default function users (state = {}, action) {
                         }    
                     }
                 }
+                case ADD_QUESTION :
+                    return {
+                    ...state,
+                        [action.question.author]: {
+                            ...state[action.question.author],
+                            questions: [
+                                ...state[action.question.author].questions,
+                                action.question.id 
+                            ]   
+                        }
+                    }
 
 
         default :
