@@ -1,68 +1,51 @@
+## Would You Rather?
+
+## Project Overview
+
+Would You Rather? is the second project in the Udacity React Nanodegree. It is designed to teach students how to handle state management using Redux.
+
+This application presents the user with a list of poll questions and allows them to create their own polls. Answering and creating polls is rewarded with points.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+First, you need to clone this file to your local machine, which you can use by running the command:
+### `git clone https://github.com/markyz89/would-you-rather.git`
+
+You should then run 
+### `npm install` 
+to install the project's dependencies.
+
+Once installed, to start the application, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Which runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Log into the application by selecting one of the three available users. In order to see any of the content, you must be logged in.
 
-### `npm run build`
+Upon login you will see a list of unanswered questions by default. You can answer any of these questions by clicking on view poll and selecting an answer. The poll will then be moved to the answered questions tab. You can navigate back to the list of questions by clicking on Home.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The New question button in the naviation bar allows you to create your own question. Simply fill in both of your alternatives in the two text inputs provided and hit submit to register your question.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Finally the Leaderboard button will show how you rank against the other users. Answer and create more questions to get to the top of that leaderboard!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Dependencies
+* [React](https://reactjs.org/)
+* [React DOM](https://www.npmjs.com/package/react-dom)
+* [React Router DOM](https://github.com/ReactTraining/react-router)
+* [Redux](http://redux.js.org/)
+* [React Redux](https://github.com/reduxjs/react-redux)
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project was an educational project and as such there are no plans to progress the project with contributions.
