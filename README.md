@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Installation
 
-First, you need to clone this file to your local machine, which you can use by running the command:
+First, you need to clone this file to your local machine, which you can do by running the command:
 ### `git clone https://github.com/markyz89/would-you-rather.git`
 
 You should then run 
@@ -45,6 +45,7 @@ Finally the Leaderboard button will show how you rank against the other users. A
 * [Redux](http://redux.js.org/)
 * [React Redux](https://github.com/reduxjs/react-redux)
 * [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+* [Redux Logger](https://github.com/LogRocket/redux-logger)
 
 ## Contributions
 
